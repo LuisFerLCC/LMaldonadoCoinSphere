@@ -20,8 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoinSphereTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
+                    HomeScreen(
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -31,17 +30,24 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "Hello World!",
         modifier = modifier
     )
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true
+)
 @Composable
-fun GreetingPreview() {
+fun HomeScreenPreview() {
     CoinSphereTheme {
-        Greeting("Android")
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            HomeScreen(
+                modifier = Modifier.padding(innerPadding)
+            )
+        }
     }
 }
